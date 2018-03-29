@@ -1,0 +1,54 @@
+# Promise Game
+
+```javascript
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Promise Game</title>
+</head>
+
+<body>
+  <main>
+    <section>
+      <div>
+        <p>
+          เริ่มเกมส์...
+          <br> คลิกปุ่มให้ได้มากกว่า 5 ครั้งภายในเวลา 2 วินาที
+        </p>
+      </div>
+      <button>Click!</button>
+    </section>
+  </main>
+
+  <script>
+    function startGame() {
+      console.log('เริ่มเกมส์!')
+      console.log('คลิกปุ่มให้ได้มากกว่า 5 ครั้งภายในเวลา 2 วินาที')
+      let counter = 0
+      document.querySelector('button').addEventListener('click', () => {
+        ++counter
+      })
+
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          if (counter > 5) {
+            resolve(counter)
+          } else {
+            reject()
+          }
+        }, 2000)
+      })
+    }
+
+    startGame()
+      .then(c => alert('คุณชนะ! จำนวนคลิก ' + c + ' ครั้ง'))
+      .catch(() => alert('คุณแพ้'))
+  </script>
+</body>
+
+</html>
+```
