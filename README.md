@@ -1,6 +1,6 @@
 # Promise Game
 
-```javascript
+```html
 <!DOCTYPE html>
 <html lang="en">
 
